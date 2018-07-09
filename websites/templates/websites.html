@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add to cookie</title>
+</head>
+<body>
+    <form action="" method="GET">
+            <select name="category">
+            {% for category in categories %}
+            <option value="{{ category }}" name="{{ category }}">{{ category }}</option>
+            {% endfor %}
+            </select>
+        <button type="submit">set category filter</button>
+{#            {% csrf_token %}#}
+    </form>
+
+    {% for website in websites %}
+    {{ website.url }}<br>
+    {%  endfor %}
+
+</body>
+</html>

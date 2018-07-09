@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
+
+from websites.views import websites_list_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url('^websites/$', websites_list_view),
+    url('^websites/(?P<category>[a-zA-Z]+)/$', websites_list_view),
+    # url('^websites/$', WebsitesListView.as_view()),
 ]
