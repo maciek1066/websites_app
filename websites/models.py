@@ -10,7 +10,16 @@ from django.db import models
 #     date_updated
 
 
-# WebsiteCategory:
+class Website(models.Model):
+    url = models.CharField(max_length=128)
+    title = models.CharField(max_length=32)
+    meta_description = models.CharField(max_length=32)
+    alexa_rank = models.IntegerField()
+    category = models.ForeignKey(WebsiteCategory)
+
+
+class WebsiteCategory(models.Model):
+    pass
 #     name
 #     description
 #     date_added
