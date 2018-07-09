@@ -6,7 +6,7 @@ class WebsiteCategory(models.Model):
     description = models.CharField(max_length=128)
     date_added = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(null=True)
-    count = models.IntegerField()
+    count = models.IntegerField(null=True)
 
 
 class Website(models.Model):
