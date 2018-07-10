@@ -123,8 +123,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# CELERY_ACCEPT_CONTENT = ['json']
-# CELERY_TASK_SERIALIZER = 'json'
-# CELERY_RESULT_SERIALIZER = 'json'
-#
-# BROKER_URL = 'amgp://guest:guest@localhost//'
+BROKER_URL = 'amgp://guest:guest@localhost//'
+
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
