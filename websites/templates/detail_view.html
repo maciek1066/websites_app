@@ -1,0 +1,22 @@
+{% extends "websites.html" %}
+
+{% block content %}
+    <button>scan website (in progres)</button>
+    <h3>Website info:</h3>
+        {{ website.url }}
+        {{ website.title }}
+        {{ website.meta_description }}
+        {{ website.alexa_rank }}
+        {{ website.category }}
+        {{ website.date_added }}
+        {{ website.date_updated }}
+    <h4>web pages:</h4>
+        {% for page in webpages %}
+            {{ page.URL }}
+            {{ page.date_added }}
+            {{ page.date_updated }}
+            {{ page.title }}
+            {{ page.meta_description }}<br>
+        {% endfor %}
+
+{% endblock %}

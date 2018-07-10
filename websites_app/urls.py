@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 
-from websites.views import websites_list_view
+from websites.views import WebsitesListView, WebsiteDetailView, CreateView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('^websites/$', websites_list_view),
-    url('^websites/(?P<category>[a-zA-Z]+)/$', websites_list_view),
-    # url('^websites/$', WebsitesListView.as_view()),
+    url('^websites/$', WebsitesListView.as_view(), name="websites"),
+    url('^websites/(?P<category>\w+)/$', WebsitesListView.as_view()),
+    url('^websites/(?P<category>\w+)/(?P<url>\w+)/$', WebsitesListView.as_view(), name="url"),
+    url('^detail_view/(?P<website_id>(\d)+)/$', WebsiteDetailView.as_view(), name="detail_view"),
+    url('^create_view/$', CreateView.as_view(), name="create_view"),
 ]

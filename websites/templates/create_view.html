@@ -1,0 +1,18 @@
+{% extends 'websites.html' %}
+
+{% block content %}
+    <h2>Create website:</h2>
+    <form action="{% url 'websites' %}" method="POST">
+    {% csrf_token %}
+    {{ form }}<br>
+    <button type="submit" name="new_website">submit</button>
+    </form>
+
+    <h3>Create web page:</h3>
+    <form action="{% url 'websites' %}" method="POST">
+    {% csrf_token %}
+    {{ form2 }}<br>
+    <button type="submit" name="new_webpage">submit</button>
+    </form>
+
+{% endblock %}

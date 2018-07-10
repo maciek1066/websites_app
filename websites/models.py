@@ -5,7 +5,7 @@ class WebsiteCategory(models.Model):
     name = models.CharField(max_length=32)
     description = models.CharField(max_length=128)
     date_added = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(null=True)
+    date_updated = models.DateTimeField(auto_now=True)
     count = models.IntegerField(null=True)
 
     def __str__(self):
@@ -19,21 +19,18 @@ class Website(models.Model):
     alexa_rank = models.IntegerField()
     category = models.ForeignKey(WebsiteCategory, on_delete=models.CASCADE)
     date_added = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(null=True)
+    date_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return self.url
 
 
 class WebPage(models.Model):
     website = models.ForeignKey(Website, on_delete=models.CASCADE)
     URL = models.CharField(max_length=128, unique=True)
     date_added = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(null=True)
+    date_updated = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=32)
     meta_description = models.CharField(max_length=128)
-
-    def __str__(self):
-        return self.name
 
 
