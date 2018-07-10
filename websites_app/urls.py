@@ -17,7 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 
-from websites.views import WebsitesListView, WebsiteDetailView, CreateView
+from websites.views import (
+    CategoriesView,
+    WebsitesListView,
+    WebsiteDetailView,
+    CreateView,
+)
 
 
 urlpatterns = [
@@ -27,4 +32,5 @@ urlpatterns = [
     url('^websites/(?P<category>\w+)/(?P<url>\w+)/$', WebsitesListView.as_view(), name="url"),
     url('^detail_view/(?P<website_id>(\d)+)/$', WebsiteDetailView.as_view(), name="detail_view"),
     url('^create_view/$', CreateView.as_view(), name="create_view"),
+    url('^categories_view/$', CategoriesView.as_view(), name="categories_view"),
 ]

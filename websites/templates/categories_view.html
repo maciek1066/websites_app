@@ -1,0 +1,9 @@
+{% extends "websites.html" %}
+{% block content %}
+    <h3>Categories:</h3>
+    {% for category in categories %}
+        <b>{{ category.name }}</b>
+        pages:{{ category.count }}<br>
+    {% endfor %}
+
+{% endblock %}

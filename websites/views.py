@@ -95,4 +95,28 @@ class CreateView(View):
             form2 = WebPageForm(request.POST)
             if form2.is_valid():
                 form2.save()
-        return redirect("hello")
+        return redirect("/websites")
+
+
+class CategoriesView(View):
+    def get(self, request):
+        categories = WebsiteCategory.objects.all()
+        ctx = {
+            "categories": categories,
+        }
+        return render(
+            request,
+            "categories_view.html",
+            context=ctx,
+        )
+
+    def post(self, request):
+        pass
+
+
+
+
+
+
+
+
