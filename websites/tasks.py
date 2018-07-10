@@ -19,10 +19,8 @@ def generator_websites(url):
 
     with ZipFile(BytesIO(url.read())) as my_zip_file:
         for contained_file in my_zip_file.namelist():
-            # with open(("unzipped_and_read_" + contained_file + ".file"), "wb") as output:
             for line in my_zip_file.open(contained_file).readlines():
                 yield(line.decode())
-                # output.write(line)
 
 
 # for each_website in generator_websites(url):
