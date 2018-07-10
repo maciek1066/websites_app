@@ -12,3 +12,9 @@ class WebPageForm(ModelForm):
     class Meta:
         model = WebPage
         fields = "__all__"
+
+
+class WebsiteCategoryForm(ModelForm):
+    class Meta:
+        model = WebsiteCategory
+        fields = "__all__"

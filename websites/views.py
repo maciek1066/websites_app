@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from .models import WebsiteCategory, Website, WebPage
-from .forms import WebsiteForm, WebPageForm
+from .forms import WebsiteForm, WebPageForm, WebsiteCategoryForm
 
 
 class WebsitesListView(View):
@@ -114,9 +114,21 @@ class CategoriesView(View):
         pass
 
 
+class CreateCategory(View):
+    def get(self, request):
+        form = WebsiteCategoryForm()
+        ctx = {
+            "form": form,
+        }
+        return render(
+            request,
+            "create_category.html",
+            context=ctx,
+        )
 
-
-
-
-
+    def post(self, request):
+        form = WebsiteCategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect("/categories_view")
 

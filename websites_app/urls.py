@@ -22,6 +22,7 @@ from websites.views import (
     WebsitesListView,
     WebsiteDetailView,
     CreateView,
+    CreateCategory,
 )
 
 
@@ -33,4 +34,5 @@ urlpatterns = [
     url('^detail_view/(?P<website_id>(\d)+)/$', WebsiteDetailView.as_view(), name="detail_view"),
     url('^create_view/$', CreateView.as_view(), name="create_view"),
     url('^categories_view/$', CategoriesView.as_view(), name="categories_view"),
+    url('^create_category/$', CreateCategory.as_view(), name="create_category"),
 ]
