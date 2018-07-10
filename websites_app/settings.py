@@ -1,3 +1,4 @@
+
 """
 Django settings for websites_app project.
 
@@ -9,7 +10,6 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'websites',
+    # 'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -123,8 +124,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-BROKER_URL = 'amgp://guest:guest@localhost//'
+CELERY_RESULT_BACKEND = "db+postgresql+psycopg2://"
 
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
+CELERY_BROKER_URL = 'amqp://guest:guest@localhost//'
+
+# CELERY_ACCEPT_CONTENT = ['json']
+# CELERY_TASK_SERIALIZER = 'json'
+# CELERY_RESULT_SERIALIZER = 'json'

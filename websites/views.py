@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from .models import WebsiteCategory, Website, WebPage
 from .forms import WebsiteForm, WebPageForm, WebsiteCategoryForm
-from .tasks import reverse
+from .tasks import generator_websites
 
 
 class WebsitesListView(View):
