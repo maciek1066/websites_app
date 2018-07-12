@@ -35,5 +35,5 @@ class WebPage(models.Model):
 
 
 class TestModel(models.Model):
-    website = models.CharField(max_length=64)
+    website = models.CharField(max_length=128)
     position = models.CharField(max_length=12)

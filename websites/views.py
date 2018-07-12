@@ -134,6 +134,3 @@ class CreateCategory(View):
         return redirect("/categories_view")
 
 
-class PopulateTestModel(View):
-    def get(self, request):
-        pass
