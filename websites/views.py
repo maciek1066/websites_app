@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from .models import WebsiteCategory, Website, WebPage
 from .forms import WebsiteForm, WebPageForm, WebsiteCategoryForm
-from .tasks import generator_websites
+from .tasks import get_websites
 
 
 class WebsitesListView(View):
@@ -133,3 +133,7 @@ class CreateCategory(View):
             form.save()
         return redirect("/categories_view")
 
+
+class PopulateTestModel(View):
+    def get(self, request):
+        pass

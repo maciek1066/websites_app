@@ -34,3 +34,6 @@ class WebPage(models.Model):
     meta_description = models.CharField(max_length=128)
 
 
+class TestModel(models.Model):
+    website = models.CharField(max_length=64)
+    position = models.CharField(max_length=12)

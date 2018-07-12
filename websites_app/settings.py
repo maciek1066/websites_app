@@ -124,8 +124,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-CELERY_RESULT_BACKEND = "db+postgresql+psycopg2://"
+CELERY_RESULT_BACKEND = "db+postgresql://postgres:project%0@localhost/block_chain"
 
+# CELERY_BROKER_URL = 'amqp://localhost'
 CELERY_BROKER_URL = 'amqp://guest:guest@localhost//'
 
 # CELERY_ACCEPT_CONTENT = ['json']
